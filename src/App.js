@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/recomendations" element={<Recommendations />} />
+        <Route path="/recommendations" element={<Recommendations />} />
         <Route path="/all/anime" element={<Anime />} />
         <Route path="/all/manga" element={<Manga />} />
         <Route path="/reviews" element={<Review />} />
