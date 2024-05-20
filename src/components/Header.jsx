@@ -8,8 +8,12 @@ const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
-        <header className="bg-transparent">
+        <header className="bg-transparent relative z-10">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-0">
                 <Link to="/" className="block text-white text-2xl font-bold text-center md:text-left">
                     <span className="sr-only">Home</span>
@@ -26,23 +30,23 @@ const Header = () => {
                     <nav aria-label="Global" className="hidden md:block">
                         <ul className="flex items-center gap-6 text-sm">
                             <li>
-                                <Link to="/genre" className="text-white transition hover:text-white/75">
+                                <Link to="/all/anime" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Anime
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/movies" className="text-white transition hover:text-white/75">
+                                <Link to="/all/manga" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Manga
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/onas" className="text-white transition hover:text-white/75">
+                                <Link to="/reviews" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Reviews
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/news" className="text-white transition hover:text-white/75">
-                                    Contact
+                                <Link to="/recommendations" className="text-white transition hover:text-white/75" onClick={closeMenu}>
+                                    Recommendations
                                 </Link>
                             </li>
                         </ul>
@@ -85,6 +89,7 @@ const Header = () => {
                         <button
                             className="block rounded bg-transparent border border-gray-600 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
                             onClick={toggleMenu}
+                            aria-label="Toggle menu"
                         >
                             <span className="sr-only">Toggle menu</span>
                             <svg
@@ -103,38 +108,44 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div
-                className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden absolute top-16 inset-x-0 p-2 transition transform origin-top-right md:ml-4 md:mt-4 md:translate-x-0 text-center`}
-            >
-                <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div className={`${isMenuOpen ? 'block' : 'hidden'} absolute top-full left-0 right-0 p-2 bg-black md:bg-transparent md:hidden`}>
+                <div className="rounded-lg shadow-md ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div className="px-5 py-4">
                         <Link
-                            to="/genre"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                            onClick={toggleMenu}
+                            to="/all/anime"
+                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50"
+                            onClick={() => {
+                                closeMenu();
+                            }}
                         >
                             Anime
                         </Link>
                         <Link
-                            to="/movies"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 mt-1"
-                            onClick={toggleMenu}
+                            to="/all/manga"
+                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50 mt-1"
+                            onClick={() => {
+                                closeMenu();
+                            }}
                         >
                             Manga
                         </Link>
                         <Link
-                            to="/onas"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 mt-1"
-                            onClick={toggleMenu}
+                            to="/reviews"
+                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50 mt-1"
+                            onClick={() => {
+                                closeMenu();
+                            }}
                         >
                             Reviews
                         </Link>
                         <Link
-                            to="/news"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 mt-1"
-                            onClick={toggleMenu}
+                            to="/recommendations"
+                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50 mt-1"
+                            onClick={() => {
+                                closeMenu();
+                            }}
                         >
-                            Contact
+                            Recommendations
                         </Link>
                     </div>
                 </div>

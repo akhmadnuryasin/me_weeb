@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer className="bg-transparent">
-            <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-0">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <div className="flex justify-center text-teal-600 sm:justify-start">
                         <h1 to="/" className="block text-white text-2xl font-bold text-center md:text-left">
@@ -19,12 +19,9 @@ const Footer = () => {
                         </h1>
                     </div>
                     <div className="mt-4 sm:mt-0">
-                        <nav className="flex justify-center gap-4 text-sm text-gray-500 sm:justify-end">
-                            <a className="hover:opacity-75" href="/">Anime</a>
-                            <a className="hover:opacity-75" href="/">Manga</a>
-                            <a className="hover:opacity-75" href="/">Reviews</a>
-                            <a className="hover:opacity-75" href="/">Contact</a>
-                        </nav>
+                        <p class="mt-12 text-center text-sm text-gray-500 lg:text-right">
+                            Copyright &copy; Akhmad Nuryasin 2024. All rights reserved.
+                        </p>
                     </div>
                 </div>
             </div>

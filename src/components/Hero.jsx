@@ -18,7 +18,7 @@ const Hero = () => {
                     <div className="mt-4 sm:mt-8">
                         <button className="bg-gradient-to-r hover:scale-105 rounded-full from-red-500 to-blue-500 text-white font-semibold p-0.5">
                             <span className="flex w-full bg-black text-white rounded-full p-2">
-                                Read Now
+                                Explore Now
                             </span>
                         </button>
                     </div>

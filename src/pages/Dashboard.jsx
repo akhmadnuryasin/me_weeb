@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
 import Hero from '../components/Hero';
 import TopAnimeSection from '../components/TopAnimeSection';
 import TopMangaSection from '../components/TopMangaSection';
-import UpcomingSection from '../components/UpcomingSection';
-import Footer from '../components/Footer';
 import { BeatLoader } from 'react-spinners';
-import { fetchTopAnime, fetchTopManga, fetchRandomAnime } from '../api/jikanApi';
+import { fetchTopAnime, fetchTopManga } from '../api/jikanApi';
+import Layout from '../components/Layout';
 
 const Dashboard = () => {
   const [topAnime, setTopAnime] = useState([]);
   const [topManga, setTopManga] = useState([]);
-  const [randomAnime, setRandomAnime] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -26,9 +23,10 @@ const Dashboard = () => {
         const topMangaResponse = await fetchTopManga();
         setTopManga(topMangaResponse.data.data);
 
+
         // // Fetch Random Anime data
-        const randomAnimeResponse = await fetchRandomAnime();
-        setRandomAnime(randomAnimeResponse.data);
+        // const randomAnimeResponse = await fetchRandomAnime();
+        // setRandomAnime(randomAnimeResponse.data);
 
         setLoading(false);
       } catch (error) {
@@ -54,15 +52,15 @@ const Dashboard = () => {
         </div>
       ) : (
         <>
-          <Header />
-          <Hero />
-          <TopAnimeSection animeList={topAnime} />
-          <TopMangaSection mangaList={topManga} />
-          <UpcomingSection upcomingList={randomAnime} />
-          <Footer />
+          <Layout>
+            <Hero />
+            <TopAnimeSection animeList={topAnime} />
+            <TopMangaSection mangaList={topManga} />
+          </Layout>
         </>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 

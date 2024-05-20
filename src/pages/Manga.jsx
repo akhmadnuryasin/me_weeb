@@ -1,14 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
+import { fetchTopManga } from '../api/jikanApi';
 
-const TopMangaSection = ({ mangaList }) => {
-    const [mangaData, setMangaData] = useState([]);
+const Manga = () => {
+    const [mangaData, setMangaData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setMangaData(mangaList);
-    }, [mangaList]);
+        const fetchData = async () => {
+            try {
+                const topMangaResponse = await fetchTopManga();
+                setMangaData(topMangaResponse.data.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    const limitedMangaList = mangaData.slice(0, 6);
+        fetchData();
+    }, []);
 
     const truncateTitle = (title, maxLength) => {
         if (title.length > maxLength) {
@@ -18,14 +30,16 @@ const TopMangaSection = ({ mangaList }) => {
     };
 
     return (
-        <section className="pb-16 bg-transparent">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-xl underline font-bold text-white decoration-blue-400 underline-offset-4">Top Manga</h2>
-                    <Link to={"/all/anime"} className="px-4 py-2 hover:text-white/80 text-white text-xs font-medium">View More</Link>
+        <Layout>
+            <h1 className='text-3xl font-bold my-8 text-center text-white'>All Manga</h1>
+
+            {loading ? (
+                <div className='flex justify-center items-center h-screen'>
+                    <p className='text-lg text-gray-700'>Loading...</p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-                    {limitedMangaList.map((manga, index) => (
+            ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 px-5">
+                    {mangaData && mangaData.map((manga, index) => (
                         <Link to={`/manga/${manga.mal_id}`} key={manga.mal_id} className="bg-transparent rounded-lg shadow-md overflow-hidden relative">
                             <img
                                 src={manga.images.jpg.image_url}
@@ -43,9 +57,9 @@ const TopMangaSection = ({ mangaList }) => {
                         </Link>
                     ))}
                 </div>
-            </div>
-        </section>
+            )}
+        </Layout>
     );
-};
+}
 
-export default TopMangaSection;
+export default Manga;
