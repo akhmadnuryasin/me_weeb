@@ -3,11 +3,14 @@ import Hero from '../components/Hero';
 import TopAnimeSection from '../components/TopAnimeSection';
 import TopMangaSection from '../components/TopMangaSection';
 import { BeatLoader } from 'react-spinners';
-import { fetchTopAnime, fetchTopManga } from '../api/jikanApi';
+import { fetchTopAnime, fetchTopManga, fetchTopCharacters, fetchRandomAnime } from '../api/jikanApi';
 import Layout from '../components/Layout';
+import TopCharacterSection from '../components/TopCharacterSection';
 
 const Dashboard = () => {
   const [topAnime, setTopAnime] = useState([]);
+  const [randomAnime, setRandomAnime] = useState([]);
+  const [topCharacters, setTopCharacters] = useState([]);
   const [topManga, setTopManga] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -23,15 +26,18 @@ const Dashboard = () => {
         const topMangaResponse = await fetchTopManga();
         setTopManga(topMangaResponse.data.data);
 
+        // Fetch Top Characters data
+        const topCharactersResponse = await fetchTopCharacters();
+        setTopCharacters(topCharactersResponse.data.data);
 
         // // Fetch Random Anime data
-        // const randomAnimeResponse = await fetchRandomAnime();
-        // setRandomAnime(randomAnimeResponse.data);
+        const randomAnimeResponse = await fetchRandomAnime();
+        setRandomAnime(randomAnimeResponse.data);
 
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
-        setError('Failed to fetch data. Please try again later.');
+        setError('Gagal Mengambil Data, Silahkan Coba Kembali.');
         setLoading(false);
       }
     };
@@ -40,22 +46,23 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className='bg-black min-h-screen text-white'>
+    <div className='min-h-screen text-white bg-black'>
       {loading ? (
-        <div className='flex justify-center items-center h-screen flex-col'>
+        <div className='flex flex-col items-center justify-center min-h-screen'>
           <BeatLoader color={'#ffffff'} loading={loading} size={15} />
-          <p className='mt-4'>Sedang Mengambil Data</p>
+          <p>Sedang Mengambil Data</p>
         </div>
       ) : error ? (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='flex items-center justify-center h-screen'>
           <p>{error}</p>
         </div>
       ) : (
         <>
           <Layout>
-            <Hero />
+            <Hero randomAnime={randomAnime} />
             <TopAnimeSection animeList={topAnime} />
             <TopMangaSection mangaList={topManga} />
+            <TopCharacterSection characterList={topCharacters} />
           </Layout>
         </>
       )

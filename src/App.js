@@ -3,22 +3,28 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import AnimeDetail from './pages/AnimeDetail';
 import MangaDetail from './pages/MangaDetail';
-import Review from './pages/Review';
+import CharacterDetail from './pages/CharacterDetail';
 import Anime from './pages/Anime';
 import Manga from './pages/Manga';
+import Review from './pages/Review';
 import Recommendations from './pages/Recommendations';
+import Magazines from './pages/Magazines';
+import Clubs from './pages/Clubs';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/recommendations" element={<Recommendations />} />
         <Route path="/all/anime" element={<Anime />} />
         <Route path="/all/manga" element={<Manga />} />
         <Route path="/reviews" element={<Review />} />
+        <Route path="/magazines" element={<Magazines />} />
+        <Route path="/clubs" element={<Clubs />} />
+        <Route path="/recommendations" element={<Recommendations />} />
         <Route path="/anime/:animeId" element={<AnimeDetail />} />
         <Route path="/manga/:mangaId" element={<MangaDetail />} />
+        <Route path="/characters/:mangaId" element={<CharacterDetail />} />
       </Routes>
     </Router>
   );

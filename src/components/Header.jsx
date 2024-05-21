@@ -13,20 +13,20 @@ const Header = () => {
     };
 
     return (
-        <header className="bg-transparent relative z-10">
-            <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-0">
-                <Link to="/" className="block text-white text-2xl font-bold text-center md:text-left">
+        <header className="relative z-10 bg-transparent">
+            <div className="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-0">
+                <Link to="/" className="block text-2xl font-bold text-center text-white md:text-left">
                     <span className="sr-only">Home</span>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
                         M
                     </span>
                     e
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
                         W
                     </span>
                     eeb
                 </Link>
-                <div className="flex flex-1 items-center justify-center md:justify-between">
+                <div className="flex items-center justify-center flex-1 md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
                         <ul className="flex items-center gap-6 text-sm">
                             <li>
@@ -49,6 +49,16 @@ const Header = () => {
                                     Recommendations
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/magazines" className="text-white transition hover:text-white/75" onClick={closeMenu}>
+                                    Magazines
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/clubs" className="text-white transition hover:text-white/75" onClick={closeMenu}>
+                                    Clubs
+                                </Link>
+                            </li>
                         </ul>
                     </nav>
 
@@ -64,7 +74,7 @@ const Header = () => {
                                     placeholder="Search Anime"
                                     className="w-full rounded-md text-white px-2 border bg-transparent border-gray-700 py-0.5 pe-10 shadow-sm sm:text-sm"
                                 />
-                                <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
+                                <span className="absolute inset-y-0 grid w-10 end-0 place-content-center">
                                     <button type="button" className="text-gray-600 hover:text-gray-700">
                                         <span className="sr-only">Search</span>
                                         <svg
@@ -73,7 +83,7 @@ const Header = () => {
                                             viewBox="0 0 24 24"
                                             strokeWidth="1.5"
                                             stroke="currentColor"
-                                            className="h-4 w-4"
+                                            className="w-4 h-4"
                                         >
                                             <path
                                                 strokeLinecap="round"
@@ -94,7 +104,7 @@ const Header = () => {
                             <span className="sr-only">Toggle menu</span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
+                                className="w-5 h-5"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -109,11 +119,11 @@ const Header = () => {
 
             {/* Mobile Menu */}
             <div className={`${isMenuOpen ? 'block' : 'hidden'} absolute top-full left-0 right-0 p-2 bg-black md:bg-transparent md:hidden`}>
-                <div className="rounded-lg shadow-md ring-1 ring-black ring-opacity-5 overflow-hidden">
+                <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-black ring-opacity-5">
                     <div className="px-5 py-4">
                         <Link
                             to="/all/anime"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50"
+                            className="block px-3 py-2 text-base font-medium text-white rounded-md hover:bg-gray-50"
                             onClick={() => {
                                 closeMenu();
                             }}
@@ -122,7 +132,7 @@ const Header = () => {
                         </Link>
                         <Link
                             to="/all/manga"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50 mt-1"
+                            className="block px-3 py-2 mt-1 text-base font-medium text-white rounded-md hover:bg-gray-50"
                             onClick={() => {
                                 closeMenu();
                             }}
@@ -131,7 +141,7 @@ const Header = () => {
                         </Link>
                         <Link
                             to="/reviews"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50 mt-1"
+                            className="block px-3 py-2 mt-1 text-base font-medium text-white rounded-md hover:bg-gray-50"
                             onClick={() => {
                                 closeMenu();
                             }}
@@ -140,12 +150,30 @@ const Header = () => {
                         </Link>
                         <Link
                             to="/recommendations"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50 mt-1"
+                            className="block px-3 py-2 mt-1 text-base font-medium text-white rounded-md hover:bg-gray-50"
                             onClick={() => {
                                 closeMenu();
                             }}
                         >
                             Recommendations
+                        </Link>
+                        <Link
+                            to="/magazines"
+                            className="block px-3 py-2 mt-1 text-base font-medium text-white rounded-md hover:bg-gray-50"
+                            onClick={() => {
+                                closeMenu();
+                            }}
+                        >
+                            Magazines
+                        </Link>
+                        <Link
+                            to="/clubs"
+                            className="block px-3 py-2 mt-1 text-base font-medium text-white rounded-md hover:bg-gray-50"
+                            onClick={() => {
+                                closeMenu();
+                            }}
+                        >
+                            Clubs
                         </Link>
                     </div>
                 </div>
