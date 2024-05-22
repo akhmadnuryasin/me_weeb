@@ -50,7 +50,7 @@ const Dashboard = () => {
       {loading ? (
         <div className='flex flex-col items-center justify-center min-h-screen'>
           <BeatLoader color={'#ffffff'} loading={loading} size={15} />
-          <p>Sedang Mengambil Data</p>
+          <p className="mt-2">Sedang Mengambil Data</p>
         </div>
       ) : error ? (
         <div className='flex items-center justify-center h-screen'>
