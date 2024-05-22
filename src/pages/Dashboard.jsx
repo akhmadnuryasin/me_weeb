@@ -20,7 +20,12 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [content, setContent] = useState(false);
+
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setContent(true);
+    }, 5000);
     // Fetch Top Anime data
     // const topAnimeResponse = fetchTopAnime();
     // setTopAnime(topAnimeResponse.data.data);
@@ -39,13 +44,17 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen text-white bg-black">
-      <Layout>
-        <Hero/>
-        <TopAnimeSection />
-        <TopMangaSection/>
-        <TopCharacterSection />
-      </Layout>
+    <div>
+      {content && (
+        <div className="min-h-screen text-white bg-black">
+          <Layout>
+            <Hero />
+            <TopAnimeSection />
+            <TopMangaSection />
+            <TopCharacterSection />
+          </Layout>
+        </div>
+      )}
     </div>
   );
 };

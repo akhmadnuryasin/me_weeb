@@ -22,6 +22,7 @@ const TopCharacterSection = () => {
 
     useEffect(() => {
         const getData = () => {
+            const timer = setTimeout(() => {
             console.log("getData");
              axios
               .get(`${API_URL}/top/characters`)
@@ -35,6 +36,7 @@ const TopCharacterSection = () => {
               .catch((error) => {
                 console.log(error);
               });
+            }, 3000); 
           };
         
           getData();
