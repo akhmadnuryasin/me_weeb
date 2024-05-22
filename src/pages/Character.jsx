@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
-import { fetchTopAnime } from '../api/jikanApi';
+import { fetchTopCharacters } from '../api/jikanApi';
 import { BeatLoader } from 'react-spinners';
 
-const Anime = () => {
-    const [animeData, setAnimeData] = useState(null);
+const Character = () => {
+    const [mangaData, setMangaData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const topAnimeResponse = await fetchTopAnime();
-                setAnimeData(topAnimeResponse.data.data);
+                const topMangaResponse = await fetchTopCharacters();
+                setMangaData(topMangaResponse.data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             } finally {
@@ -38,13 +38,13 @@ const Anime = () => {
                 </div>
             ) : (
                 <div>
-                    <h1 className='my-8 text-3xl font-bold text-center text-white'>All Anime</h1>
+                    <h1 className='my-8 text-3xl font-bold text-center text-white'>All Characters</h1>
                     <div className="grid grid-cols-1 gap-8 px-5 pt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-                        {animeData && animeData.map((anime, index) => (
-                            <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id} className="relative overflow-hidden bg-transparent rounded-lg shadow-md">
+                        {mangaData && mangaData.map((manga, index) => (
+                            <Link to={`/characters/${manga.mal_id}`} key={manga.mal_id} className="relative overflow-hidden bg-transparent rounded-lg shadow-md">
                                 <img
-                                    src={anime.images.jpg.image_url}
-                                    alt={anime.title}
+                                    src={manga.images.jpg.image_url}
+                                    alt={manga.name}
                                     className="object-cover object-center w-full lg:h-64 h-96"
                                 />
                                 <div className="absolute bottom-0 left-0 right-0 py-2 text-center text-white bg-black bg-opacity-80">
@@ -52,16 +52,17 @@ const Anime = () => {
                                         <span className="text-red-500">
                                             {`${index < 9 ? '0' : ''}${index + 1}`}
                                         </span>
-                                        {` ${truncateTitle(anime.title, 14)}`}
+                                        {` ${truncateTitle(manga.name, 14)}`}
                                     </h3>
                                 </div>
                             </Link>
                         ))}
                     </div>
                 </div>
+
             )}
         </Layout>
     );
 }
 
-export default Anime;
+export default Character;

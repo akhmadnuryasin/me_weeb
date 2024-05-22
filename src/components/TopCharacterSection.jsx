@@ -22,7 +22,7 @@ const TopCharacterSection = ({ characterList }) => {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-xl font-bold text-white underline decoration-blue-400 underline-offset-4">Top Characters</h2>
-                    <Link to={"/all/anime"} className="px-4 py-2 text-xs font-medium text-white hover:text-white/80">View More</Link>
+                    <Link to={"/all/characters"} className="px-4 py-2 text-xs font-medium text-white hover:text-white/80">View More</Link>
                 </div>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                     {limitedMangaList.map((manga, index) => (

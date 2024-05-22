@@ -27,34 +27,42 @@ const Magazines = () => {
         window.open(url, '_blank');
     };
 
-    if (loading) return (
-        <Layout>
-            <div className='flex items-center justify-center h-screen'>
-                <BeatLoader color={'#ffffff'} size={15} />
-            </div>
-        </Layout>
-    );
+    if (loading) {
+        return (
+            <Layout>
+                <div className='flex items-center justify-center h-screen bg-black'>
+                    <BeatLoader color={'#ffffff'} size={15} />
+                </div>
+            </Layout>
+        );
+    }
 
-    if (error) return (
-        <Layout>
-            <div className="text-center text-red-500">Error: {error}</div>
-        </Layout>
-    );
+    if (error) {
+        return (
+            <Layout>
+                <div className="min-h-screen px-6 py-12 text-center text-red-500 bg-black">
+                    <h1 className="my-8 text-3xl font-bold text-white">Magazines</h1>
+                    <div>Error: {error}</div>
+                </div>
+            </Layout>
+        );
+    }
 
     return (
         <Layout>
-            <div className="min-h-screen px-6 pb-6 text-white bg-black">
-                <h1 className='my-8 text-3xl font-bold text-center text-white'>Magazines</h1>
-                <ul className="">
+            <div className="min-h-screen px-6 py-12 text-white bg-black">
+                <h1 className='mb-16 text-3xl font-bold text-center text-white'>Magazines</h1>
+                <ul className="grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {magazines.map((magazine) => (
                         <li
                             key={magazine.mal_id}
-                            className="transition-all duration-300 transform bg-black rounded-lg shadow-md cursor-pointer hover:shadow-lg"
+                            className="transition duration-300 bg-black border border-gray-700 rounded-lg shadow-md cursor-pointer hover:shadow-lg"
                             onClick={() => handleMagazineClick(magazine.url)}
                         >
-                            <h2 className="text-base font-bold text-white underline decoration-blue-400 underline-offset-4">
-                                {magazine.name} <a href={magazine.url} className='text-blue-500 hover:underline'>{magazine.count}</a>
-                            </h2>
+                            <div className="p-6">
+                                <h2 className="mb-2 text-lg font-bold">{magazine.name}</h2>
+                                <a href={magazine.url} className='block text-blue-500 hover:underline'>{magazine.count}</a>
+                            </div>
                         </li>
                     ))}
                 </ul>

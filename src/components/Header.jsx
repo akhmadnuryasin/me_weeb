@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -10,6 +13,33 @@ const Header = () => {
 
     const closeMenu = () => {
         setIsMenuOpen(false);
+    };
+
+    const handleSearchInputChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearch = async () => {
+        if (!searchQuery) return;
+
+        try {
+            const response = await fetch(`https://api.jikan.moe/v4/anime?q=${searchQuery}`);
+            const data = await response.json();
+            if (data.data) {
+                setError('');
+                navigate(`/search?q=${searchQuery}`);
+            } else {
+                setError('No results found');
+            }
+        } catch (err) {
+            setError('Failed to fetch data');
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
     };
 
     return (
@@ -37,6 +67,11 @@ const Header = () => {
                             <li>
                                 <Link to="/all/manga" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Manga
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/all/characters" className="text-white transition hover:text-white/75" onClick={closeMenu}>
+                                    Characters
                                 </Link>
                             </li>
                             <li>
@@ -73,9 +108,12 @@ const Header = () => {
                                     id="Search"
                                     placeholder="Search Anime"
                                     className="w-full rounded-md text-white px-2 border bg-transparent border-gray-700 py-0.5 pe-10 shadow-sm sm:text-sm"
+                                    value={searchQuery}
+                                    onChange={handleSearchInputChange}
+                                    onKeyPress={handleKeyPress}
                                 />
                                 <span className="absolute inset-y-0 grid w-10 end-0 place-content-center">
-                                    <button type="button" className="text-gray-600 hover:text-gray-700">
+                                    <button type="button" className="text-gray-600 hover:text-gray-700" onClick={handleSearch}>
                                         <span className="sr-only">Search</span>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +135,7 @@ const Header = () => {
                         </div>
 
                         <button
-                            className="block rounded bg-transparent border border-gray-600 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+                            className="block p-1 text-gray-600 transition bg-transparent border border-gray-600 rounded hover:text-gray-600/75 md:hidden"
                             onClick={toggleMenu}
                             aria-label="Toggle menu"
                         >
