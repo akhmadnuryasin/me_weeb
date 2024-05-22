@@ -12,6 +12,10 @@ import {
 import Layout from "../components/Layout";
 import TopCharacterSection from "../components/TopCharacterSection";
 
+import "../assets/style/front.css";
+
+import "../assets/img/a.jpg";
+
 const Dashboard = () => {
   const [topAnime, setTopAnime] = useState([]);
   const [randomAnime, setRandomAnime] = useState([]);
@@ -45,7 +49,9 @@ const Dashboard = () => {
 
   return (
     <div>
-      {content ? (
+    {/* <img src className="img-front" alt="img front" /> */}
+    <img src={require("../assets/img/a.jpg")} className="img-front" alt="img" width="500" height="600" />
+      {content && (
         <div className="min-h-screen text-white bg-black">
           <Layout>
             <Hero />
@@ -54,7 +60,7 @@ const Dashboard = () => {
             <TopCharacterSection />
           </Layout>
         </div>
-      ) : 'Loading...'}
+      )}
     </div>
   );
 };

@@ -1,0 +1,881 @@
+.img-front{
+    width: 100%;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .card-profile-satu{
+        margin-top: -60px;
+    }
+    
+    .card-profile-dua{
+        margin-top: 35px;
+    }
+
+    .card-tugas-1{
+        padding: unset;
+        padding-left: -20px;
+    }
+
+    .card-tugas-0{
+        margin-right: -30px;
+        margin-bottom: 17px;
+        border: 1px solid #dddada;
+    }
+
+    .text-card-tugas{
+        font-size: 16px;
+        color: rgb(255, 80, 25);
+        margin-bottom: 12px;
+    }
+
+    .text-card-news{
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(36, 36, 36);
+        padding-right: 2em;
+        padding-left: 2em;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .text-card-profile-1{
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom:5px;
+        margin-top:10px;
+        color:rgb(36, 36, 36);
+    }
+
+    .text-card-profile-2{
+        font-size: 16px;
+        font-weight: 500;
+        color: gray;
+    }
+
+    .text-card-profile-3{
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(255, 80, 25);
+    }
+
+    .text-card-profile-4{
+        font-size: 14px;
+        font-weight: bold;
+        color: gray;
+        margin-top: 5px;
+        margin-bottom: 7px;
+        margin-left: 7px;
+    }
+
+    .text-card-news2{
+        padding-right: 2em;
+        padding-left: 1.6em;
+    }
+
+    .text-card-kalender-1{
+        padding: 4em;
+        font-weight: 500;
+    }
+
+    .div-card-news-2{
+        padding: 0.8em;
+    }
+
+    .card-profile-1{
+        border: 1px solid #dddada;
+    }
+
+    .card-profile-2{
+        box-shadow: unset;
+        border-radius: unset;
+        padding: unset;
+        border: 1px solid #dddada;
+        width: 50px;
+    }
+
+    /* box-shadow: 1px 1px 2px 1px #e9e9e9; */
+
+    .img-card-profile-1{
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        border-top-left-radius: 0.375rem;
+        border-top-right-radius: 0.375rem;   
+    }
+
+    .img-link-profile-1{
+        margin-top: 3px;
+        margin-right: 10px;
+    }
+
+    .img-link-profile-2{
+        margin-top: 3px;
+        margin-right: 10px;
+        position: relative;
+        left: 95%;
+    }
+
+    .img-tambah-catatan-1{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #cad1d7;
+        padding: 2px;
+        background-color: lightgrey;
+    }
+
+    .img-izin-1{
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+
+    .separator-absensi{
+        height: 1200px !important;
+        background-color: mediumblue;
+    }
+
+    .div-absensi{
+        height: 860px !important;
+        overflow: auto;
+    }
+
+    .link-card-1{
+        color: rgb(36, 36, 36);
+        padding-bottom: 3px;
+        border: 1px solid transparent;
+        padding-top: 3px;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+    }
+    .link-card-1:hover{
+        color: rgb(255, 80, 25);
+        background-color: #dfdfdf;
+        border: 1px solid #ededed;
+        padding-bottom: 3px;
+        padding-top: 3px;
+        padding-left: 10px;
+        margin-left: -10px;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+    }
+
+    .link-card-2{
+        color: rgb(36, 36, 36);
+        border: 1px solid transparent;
+        padding: 3px 0px 3px 0px;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+        box-shadow: unset;
+    }
+    .link-card-2:hover{
+        color: rgb(255, 80, 25);
+        background-color: #dfdfdf;
+        border: 1px solid #ededed;
+        padding: 3px 47% 3px 0px;
+        margin-left: -20px;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: unset;
+        display: flex;
+        box-shadow: unset;
+    }
+    .link-card-2:focus{
+        color: rgb(255, 80, 25);
+        background-color: rgb(242, 242, 242);
+        border: 1px solid #ededed;
+        padding: 3px 47% 3px 0px;
+        margin-left: -20px;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: unset;
+        display: flex;
+        box-shadow: unset;
+    }
+
+    .link-card-3{
+        color: rgb(36, 36, 36);
+        padding: 3px 0px 3px 10px;
+        border: 1px solid transparent;
+        font-weight: 500;
+        font-size: 14px;
+        display: flex;
+    }
+    .link-card-3:hover{
+        color: rgb(255, 80, 25);
+        background-color: rgb(242, 242, 242);
+        border: 1px solid #ededed;
+        padding: 3px 0px 3px 10px;
+        font-weight: 500;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .title-text{
+        font-size: 21px;
+        font-weight: 700;
+        margin-bottom: unset;
+    }
+
+    .text-nilai-1{
+        margin: 20px 0px 20px 10px;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+    }
+
+    .text-catatan-1{
+        margin: 20px 0px 20px 10px;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+    }
+
+    .text-catatan-2{
+        margin: 20px 0px 20px 10px;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+    }
+
+    .select-sekolah-nilai{
+        border-radius: unset;
+        margin-left: 20px;
+        width: 300px;
+        padding: unset;
+        padding-left: 10px;
+        height: 35px;
+        color: #525f7f;
+        font-weight: 500;
+        font-size: 15px;
+        margin-top: -3px;
+    }
+
+    .select-catatan-1{
+        border-radius: unset;
+        margin-left: 10px;
+        width: 200px;
+        padding: unset;
+        padding-left: 10px;
+        height: 25px;
+        color: #525f7f;
+        font-weight: 500;
+        font-size: 15px;
+        /* margin-top: -3px; */
+    }
+
+    .labelz{
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        height: 30px;
+        margin-left: 35px;
+    }
+    .text-input-file-izin{
+        font-weight: 500;
+        font-size: 14px;
+        margin-top: -5px;
+        color: #8898A9;
+    }
+    .button-input-file-izin{
+        border-radius: 4px;
+        height: 20px;
+        background-color: lightgray;
+        border: unset;
+        padding: 0px 9px;
+        font-size: 14px;
+        margin-right: -8px;
+        margin-left: 10px;
+        color: #525f7f;
+    }
+
+    .table-jadwal-2{
+        width: 560px;
+        margin-bottom: 20px !important;
+    }
+
+
+    .containerr {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        font-size: 22px;
+        margin-left: 40px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin-bottom: unset;
+      }
+      
+      /* Hide the browser's default checkbox */
+      .containerr input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      
+      /* Create a custom checkbox */
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 17px;
+        width: 17px;
+        background-color: #f8f9fe;
+        border: 1px solid rgb(221, 218, 218);;
+      }
+      
+      /* On mouse-over, add a grey background color */
+      .containerr:hover input ~ .checkmark {
+        background-color: #f8f9fe;
+      }
+      
+      /* When the checkbox is checked, add a blue background */
+      .containerr input:checked ~ .checkmark {
+        background-color: rgb(255, 80, 25);
+      }
+      
+      /* Create the checkmark/indicator (hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      
+      /* Show the checkmark when checked */
+      .containerr input:checked ~ .checkmark:after {
+        display: block;
+      }
+      
+      /* Style the checkmark/indicator */
+      .containerr .checkmark:after {
+        left: 5px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+    
+    input[type="file"] {
+        position: fixed;
+        right: 100%;
+        bottom: 100%;
+    }
+
+    .select-bulan-1{
+        border-radius: unset;
+        margin-left: 10px;
+        width: 130px;
+        padding: unset;
+        padding-left: 10px;
+        height: 25px;
+        color: #525f7f;
+        font-weight: 500;
+        font-size: 15px;
+
+    }
+
+    .img-search-catatan{
+        padding-top: unset !important;
+        border: 1px solid #cad1d7;
+        padding: 5px;
+        padding-bottom: 10px;
+        border-left: unset;
+        height: 25px;
+    }
+    
+    
+
+    .img-catatan-1{
+        margin-top: 5px;
+        margin-left: 15px;
+    }
+
+    .img-catatan-2{
+        float: right;
+    }
+
+    .text-bawah-catatan{
+        height: 95px;
+        overflow: hidden;
+    }
+    
+    .text-nilai-nama-sekolah{
+        color: rgb(255, 80, 25);
+        font-weight: 500;
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    .card-nilai-1{
+        padding: 1em 1em 1em 1em;
+    }
+
+    .card-kalender-1{
+        padding: 1em 1em 1em 1em;
+        height: 550px;
+        overflow: auto;
+    }
+
+    .card-jadwal-1{
+        padding: 1em 1em 1em 1em;
+        height: 500px;
+        overflow: auto;
+    }
+
+    .card-catatan-1{
+        display: flex;
+        /* padding: 1em; */
+        width: 250px;
+        height: 230px;
+    }
+
+    .card-catatan-2{
+        /* display: flex; */
+        padding: 0.5em 1em 0.5em 1em;
+        width: 250px;
+        height: 230px;
+    }
+
+    .card-catatan-3{
+        width: 250px;
+        height: 230px;
+    }
+
+    .card-catatan-3{
+        padding: 2.5em;
+        padding-left: 3em;
+    }
+
+    .card-tambah-catatan{
+        width: 100%;
+        margin-top: 20px;
+        border: 1px solid #dddada;
+        border-radius: unset;
+        padding : 2em;
+    }
+
+    .text-tanggal-catatan{
+        font-size: 15px;
+        font-weight: 400;
+        color: gray;
+        padding: unset;
+        margin: unset;
+    }
+
+    .text-plus-catatan{
+        padding: 0.3em;
+
+    }
+    .text-plus-catatan:hover{
+        filter: saturate(3);
+        transition: 300ms
+    }
+
+    .div-header-catatan{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+    }
+
+    .div-catatan-1{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    }
+
+    .text-judul-catatan{
+        font-size: 16px;
+        font-weight: 700;
+        padding: unset;
+        margin: unset;
+        margin-top: -4px;
+        margin-bottom: 5px;
+    }
+
+    .text-waktu-catatan{
+        color: rgb(255, 80, 25);
+        margin: unset;
+        margin-bottom: -5px;
+        padding: unset;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .text-catatan-1{
+        font-size: 14px;
+        margin: unset;
+        margin-bottom: -5px;
+    }
+    .text-catatan-2{
+        font-size: 15px;
+        margin: unset;
+        margin-bottom: 15px;
+    }
+    .input-date-catatan{
+        width: 180px;
+        border-radius: unset;
+        height: 30px;
+        margin-left: 15px;
+    }
+    .input-date-izin{
+        width: 150px;
+        border-radius: unset;
+        height: 30px;
+        margin-left: 20px;
+    }
+    .input-filee{
+        width: 180px !important;
+        border-radius: unset !important;
+        height: 30px !important;
+        margin-left: 35px !important;
+        margin-bottom: 20px;
+    }
+    @supports (-moz-appearance:none) {
+        .input-date-catatan{
+            width: 180px;
+            border-radius: unset;
+            height: 30px;
+            margin-left: 15px;
+            /* padding: unset; */
+            padding: 0px 0px 0px 10px;
+        }
+    }
+
+    [type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+    font-weight: 550;
+    font-size: 14px !important;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 19px;
+    height: 19px;
+    border: 2px solid #6a6868 !important;
+    border-radius: 100%;
+    background: #fff !important;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: #5e72e4 !important;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+    .input-text-catatan{
+        width: 300px;
+        border-radius: unset;
+        height: 30px;
+        margin-left: 20px;
+    }
+    .input-textarea-catatan{
+        /* width: 250px; */
+        border-radius: unset;
+        /* height: 30px; */
+        margin-left: 20px;
+    }
+    .label-input-catatan{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .label-input-izin{
+        margin-right: -5px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .label-input-izin-2{
+        /* margin-right: 23px; */
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .label-input-izin-3{
+        margin-right: 4px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .form-group-catatan{
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .btn-simpan-catatan{
+        padding: 6px 28px 6px 28px;
+        color: whitesmoke;
+        background-color: #23b574;
+        box-shadow: unset;
+        margin-top: 10px;
+    }
+    .btn-batal-catatan{
+        padding: 6px 32px 6px 32px;
+        box-shadow: unset;
+        color: whitesmoke;
+        background-color: #525f7f;
+        margin-top: 10px;
+    }
+
+    .th-1{
+        padding: 5px 0px 5px 0px !important;
+        text-align: center;
+        border: 1px solid #909090;
+    }
+
+    .th-2{
+        padding: 5px 0px !important;
+        text-align: center;
+        border: 1px solid #909090;
+    }
+
+    .th-3{
+        width: 80px;
+        padding: unset !important;
+        text-align: center;
+        border: 1px solid #909090;
+    }
+
+    .th-4{
+        padding: 5px 0px 5px 0px !important;
+        text-align: center;
+        border: 1px solid #909090;
+    }
+
+    .td-tabel-nilai{
+        border: 1px solid #909090;
+    }
+
+    .td-tabel-waktu{
+        text-align: center;
+        border: 1px solid #909090;
+    }
+    
+    .tb1{
+        border: 1px solid #909090;
+    }
+    .table td, .table th {
+        padding: 3px 0px 3px 0px;
+        vertical-align: unset;
+        border-top: unset;
+        white-space: unset !important;
+    }
+    .card .table td, .card .table th {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .table thead th {
+        border-bottom: unset !important;
+    }
+
+    .header-card-absensi{
+        margin-top: -20px;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .tab-content-absensi{
+        /* margin-top: -30px; */
+    }
+
+    .tabs-absensi{
+        padding-top: 5px;
+        position: relative;
+        border-bottom: unset;
+        padding-left: 2px;
+    }
+
+    .card-absensi-1{
+        box-shadow: 0px 2px 2px 1px #c8c8c8;
+        position: absolute;
+        top: 9%;
+        width: 100%;
+        /* margin-top: 25px; */
+        padding: 2em;
+        margin-left: 2px;
+    }
+
+    .card-absensi-2{
+        box-shadow: 0px 2px 2px 1px #c8c8c8;
+        position: absolute;
+        /* top: 13%; */
+        width: 100%;
+        margin-top: -41px;
+        margin-left: 2px;
+    }
+
+    .plus-absensi{
+        position: absolute;
+        top: 0%;
+        left: 84%;
+        margin-top: -12px;
+        font-size: 35px;
+        font-weight: 500;
+    }
+
+    .button-absensi-1{
+        padding-right: 40px;
+        position: relative;
+        float: right;
+        box-shadow: 0px 0px 3px 1px #c8c8c8;
+        font-weight: 700;
+        color: #525f7f;
+    }
+
+    .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        color: rgb(255, 80, 25);
+        border-top: 5px solid rgb(255, 80, 25);
+        background-color: #f8f9fe;
+        /* border-color: #dee2e6 #dee2e6 #f8f9fe; */
+        padding-bottom: 60px;
+        background-color: #fff;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 6px 25px 6px 25px;
+        border-top-left-radius: unset;
+        border-top-right-radius: unset; 
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 16px;
+        box-shadow: 0px 0px 3px 1px #c8c8c8;
+        border: unset;
+        cursor: pointer;
+        background-color: #fff;
+    }
+
+    .nav-tabs .nav-link:hover{
+        box-shadow: 0px 2px 3px 1px #c8c8c8;
+        cursor: pointer;
+        color: black;
+    }
+
+    .checkbox__label:before {
+        content: ' ';
+        display: block;
+        height: 2.5rem;
+        width: 2.5rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #EDE29F;  
+      }
+      
+      .checkbox__label:after {
+        content: ' ';
+        display: block;
+        height: 2.5rem;
+        width: 2.5rem;
+        border: .35rem solid #48440E;
+        transition: 200ms;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #EDE29F;  
+      }
+      
+      .checkbox__label:after {
+        transition: 100ms ease-in-out;
+      }
+      
+      .checkbox__input:checked ~ .checkbox__label:after {
+        border-top-style: none; 
+        border-right-style: none;
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        height: 1.25rem;
+        border-color: green;
+      }
+      
+      .old-ie .checkbox__label:before,
+      .old-ie .checkbox__label:after {
+        display: none;
+      }
+      
+      
+      .checkbox {
+        position: relative;    
+        font-size: 4em;
+        display: flex;
+        font-family: 'Roboto Condensed', serif;
+        letter-spacing: -.05em;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);   
+      }
+      
+      .checkbox__label:after:hover,
+      .checkbox__label:after:active {
+         border-color: green; 
+      }  
+      
+      .checkbox__label {
+        margin-left: 2.5rem;
+        line-height: .75;  
+      }
+    
+
+    .div-select-jadwal-1{
+        display: flex;
+        margin-top: 30px;
+        /* margin-left: 20px; */
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .label-jadwal-1{
+        font-weight: 600;
+        font-size : 14px;
+        margin-top: -4px;
+        margin-left: -10px;
+    }
+
+    .div-header-kalender-1{
+        margin: 20px 20px 10px 20px;
+        display: flex;
+    }
+
+    .checkbox-jadwal-1{
+        margin-left: 25px;
+    }
+}
