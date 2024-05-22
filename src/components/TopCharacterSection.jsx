@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const TopCharacterSection = ({ characterList }) => {
+import axios from 'axios';
+import { API_URL } from '../api/jikanApi';
+
+const TopCharacterSection = () => {
     const [mangaData, setMangaData] = useState([]);
 
-    useEffect(() => {
-        setMangaData(characterList);
-    }, [characterList]);
+    // useEffect(() => {
+    //     setMangaData(characterList);
+    // }, [characterList]);
 
-    const limitedMangaList = mangaData.slice(0, 6);
+    // const limitedMangaList = mangaData.slice(0, 6);
 
     const truncateTitle = (title, maxLength) => {
         if (title.length > maxLength) {
@@ -16,6 +19,27 @@ const TopCharacterSection = ({ characterList }) => {
         }
         return title;
     };
+
+    useEffect(() => {
+        const getData = () => {
+            console.log("getData");
+             axios
+              .get(`${API_URL}/top/characters`)
+              .then((response) => {
+                console.log(response);
+                const data = response.data.data;
+                console.log(data);
+                const limitedList = data.slice(0, 6);
+                setMangaData(limitedList);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          };
+        
+          getData();
+      }, []);
+
 
     return (
         <section className="pb-16 bg-transparent">
@@ -25,7 +49,7 @@ const TopCharacterSection = ({ characterList }) => {
                     <Link to={"/all/characters"} className="px-4 py-2 text-xs font-medium text-white hover:text-white/80">View More</Link>
                 </div>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-                    {limitedMangaList.map((manga, index) => (
+                    {mangaData.map((manga, index) => (
                         <Link to={`/characters/${manga.mal_id}`} key={manga.mal_id} className="relative overflow-hidden bg-transparent rounded-lg shadow-md">
                             <img
                                 src={manga.images.jpg.image_url}

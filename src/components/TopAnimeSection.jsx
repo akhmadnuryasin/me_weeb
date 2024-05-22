@@ -1,15 +1,38 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
-const TopAnimeSection = ({ animeList }) => {
-    const limitedAnimeList = animeList.slice(0, 6);
+import axios from 'axios';
+import { API_URL } from '../api/jikanApi';
 
+const TopAnimeSection = () => {
+    const [animeList, setAnimeList] = useState([]);
+    
     const truncateTitle = (title, maxLength) => {
         if (title.length > maxLength) {
             return title.substring(0, maxLength - 3) + '...';
         }
         return title;
     };
+
+    useEffect(() => {
+        const getData = () => {
+            console.log("getData");
+            axios
+              .get(`${API_URL}/top/anime`)
+              .then((response) => {
+                console.log(response);
+                const data = response.data.data;
+                console.log(data);
+                const limitedAnimeList = data.slice(0, 6);
+                setAnimeList(limitedAnimeList);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          };
+        
+          getData();
+      }, []);
 
     return (
         <section id='top_anime' className="pb-16 bg-transparent">
@@ -19,7 +42,7 @@ const TopAnimeSection = ({ animeList }) => {
                     <Link to="/all/anime" className="px-4 py-2 text-xs font-medium text-white hover:text-white/80">View More</Link>
                 </div>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-                    {limitedAnimeList.map((anime, index) => (
+                    {animeList.map((anime, index) => (
                         <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id} className="relative overflow-hidden bg-transparent rounded-lg shadow-md">
                             <img
                                 src={anime.images.jpg.image_url}
