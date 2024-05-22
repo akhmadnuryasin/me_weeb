@@ -28,9 +28,9 @@ const Dashboard = () => {
   const [content, setContent] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    // setTimeout(() => {
       setContent(true);
-    }, 5000);
+    // }, 5000);
     // Fetch Top Anime data
     // const topAnimeResponse = fetchTopAnime();
     // setTopAnime(topAnimeResponse.data.data);
