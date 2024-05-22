@@ -23,7 +23,7 @@ const Dashboard = () => {
   const [content, setContent] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setContent(true);
     }, 5000);
     // Fetch Top Anime data
@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      {content && (
+      {content ? (
         <div className="min-h-screen text-white bg-black">
           <Layout>
             <Hero />
@@ -54,7 +54,7 @@ const Dashboard = () => {
             <TopCharacterSection />
           </Layout>
         </div>
-      )}
+      ) : 'Loading...'}
     </div>
   );
 };
