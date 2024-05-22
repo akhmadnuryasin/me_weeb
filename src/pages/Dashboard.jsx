@@ -50,7 +50,7 @@ const Dashboard = () => {
   return (
     <div>
     {/* <img src className="img-front" alt="img front" /> */}
-    <img src={require("../assets/img/b.jpeg")}  alt="img" width="500" height="600" />
+    <img src={require("../assets/img/b.jpeg")} className="img-front" alt="img" width="500" height="600" />
       {content && (
         <div className="min-h-screen text-white bg-black">
           <Layout>
