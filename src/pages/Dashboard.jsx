@@ -14,7 +14,8 @@ import TopCharacterSection from "../components/TopCharacterSection";
 
 import "../assets/style/front.css";
 
-import "../assets/img/a.jpg";
+import moment from 'moment';
+import * as d3 from 'd3';
 
 const Dashboard = () => {
   const [topAnime, setTopAnime] = useState([]);
