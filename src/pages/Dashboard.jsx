@@ -28,9 +28,9 @@ const Dashboard = () => {
   const [content, setContent] = useState(false);
 
   useEffect(() => {
-    // setTimeout(() => {
+    setTimeout(() => {
       setContent(true);
-    // }, 3000);
+    }, 3000);
     // Fetch Top Anime data
     // const topAnimeResponse = fetchTopAnime();
     // setTopAnime(topAnimeResponse.data.data);
@@ -51,8 +51,8 @@ const Dashboard = () => {
   return (
     <div>
     {/* <img src className="img-front" alt="img front" /> */}
-    {/* <img src={require("../assets/img/b.jpeg")} className="img-front" alt="img" width="500" height="600" />
-      {content && ( */}
+    <img src={require("../assets/img/b.jpeg")} className="img-front" alt="img" width="500" height="600" />
+      {content && (
         <div className="min-h-screen text-white bg-black">
           <Layout>
             <Hero />
@@ -61,7 +61,7 @@ const Dashboard = () => {
             <TopCharacterSection />
           </Layout>
         </div>
-      {/* )} */}
+      )}
     </div>
   );
 };
