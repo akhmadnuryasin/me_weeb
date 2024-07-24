@@ -17,6 +17,7 @@ import "../assets/style/front.css";
 import moment from "moment";
 import * as d3 from "d3";
 import Banner from "../components/Banner";
+import log from "../components/log";
 
 // const Dashboard = () => {
 //   const [topAnime, setTopAnime] = useState([]);
@@ -95,9 +96,10 @@ const Dashboard = () => {
   const [content, setContent] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setContent(true);
-    }, 2000);
+    log(setContent);
+    // setTimeout(() => {
+    //   setContent(true);
+    // }, 2000);
     // Fetch Top Anime data
     // const topAnimeResponse = fetchTopAnime();
     // setTopAnime(topAnimeResponse.data.data);
