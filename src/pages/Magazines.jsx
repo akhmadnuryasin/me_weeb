@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
+import log from '../components/log';
 
 const Magazines = () => {
     const [magazines, setMagazines] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [content, setContent] = useState(false);
+
 
     useEffect(() => {
+        log(setContent);
         const fetchMagazines = async () => {
             try {
                 const response = await axios.get('https://api.jikan.moe/v4/magazines');
@@ -26,6 +30,10 @@ const Magazines = () => {
     const handleMagazineClick = (url) => {
         window.open(url, '_blank');
     };
+
+    if (content == false) {
+        return null;
+    }
 
     if (loading) {
         return (

@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
+import log from '../components/log';
 
 const Recommendations = () => {
     const [recommendations, setRecommendations] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [content, setContent] = useState(false);
+
 
     const truncateTitle = (title, maxLength) => {
         if (title.length > maxLength) {
@@ -14,6 +17,7 @@ const Recommendations = () => {
         return title;
     };
     useEffect(() => {
+        log(setContent)
         const fetchRecommendations = async () => {
             try {
                 const response = await fetch('https://api.jikan.moe/v4/recommendations/anime');
@@ -31,6 +35,10 @@ const Recommendations = () => {
 
         fetchRecommendations();
     }, []);
+
+    if (content == false) {
+        return null;
+    }
 
     if (loading) {
         return (

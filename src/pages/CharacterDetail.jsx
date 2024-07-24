@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../components/Layout';
+import log from '../components/log';
 
 const CharacterDetail = () => {
     const { mangaId } = useParams();
     const [manga, setmanga] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [content, setContent] = useState(false);
+
 
     useEffect(() => {
+        log(setContent);
         const fetchmanga = async () => {
             try {
                 const response = await axios.get(`https://api.jikan.moe/v4/characters/${mangaId}`);
@@ -22,6 +26,10 @@ const CharacterDetail = () => {
 
         fetchmanga();
     }, [mangaId]);
+
+    if (content == false) {
+        return null;
+    }
 
     if (loading) {
         return <div className="mt-20 text-center text-white">Loading...</div>;

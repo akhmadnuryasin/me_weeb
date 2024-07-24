@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../components/Layout';
+import log from '../components/log';
 
 const AnimeDetail = () => {
     const { animeId } = useParams();
     const [anime, setAnime] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [content, setContent] = useState(false);
+
 
     useEffect(() => {
+        log(setContent);
         const fetchAnime = async () => {
             try {
                 const response = await axios.get(`https://api.jikan.moe/v4/anime/${animeId}`);
@@ -22,6 +26,10 @@ const AnimeDetail = () => {
 
         fetchAnime();
     }, [animeId]);
+
+    if (content == false) {
+        return null;
+    }
 
     if (loading) {
         return <div className="mt-20 text-center text-white">Loading...</div>;

@@ -11,9 +11,6 @@ const Anime = () => {
   const [content, setContent] = useState(false);
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setContent(true);
-    // }, 2000);
     log(setContent);
 
     const fetchData = async () => {
