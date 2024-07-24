@@ -7,8 +7,14 @@ import { BeatLoader } from 'react-spinners';
 const Anime = () => {
     const [animeData, setAnimeData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [content, setContent] = useState(false);
+
 
     useEffect(() => {
+        setTimeout(() => {
+            setContent(true);
+          }, 2000);
+
         const fetchData = async () => {
             try {
                 const topAnimeResponse = await fetchTopAnime();
@@ -32,7 +38,7 @@ const Anime = () => {
 
     return (
         <Layout>
-            {loading ? (
+            {content || loading ? (
                 <div className='flex items-center justify-center h-screen'>
                     <BeatLoader color={'#ffffff'} size={15} />
                 </div>
