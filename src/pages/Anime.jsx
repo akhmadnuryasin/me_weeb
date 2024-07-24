@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
 import { fetchTopAnime } from "../api/jikanApi";
 import { BeatLoader } from "react-spinners";
+import log from "../components/log";
 
 const Anime = () => {
   const [animeData, setAnimeData] = useState(null);
@@ -10,9 +11,10 @@ const Anime = () => {
   const [content, setContent] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setContent(true);
-    }, 2000);
+    // setTimeout(() => {
+    //   setContent(true);
+    // }, 2000);
+    log(setContent);
 
     const fetchData = async () => {
       try {
