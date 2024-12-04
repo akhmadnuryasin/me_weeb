@@ -12,6 +12,9 @@ export default function Banner() {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black"></div>
       <div className="relative bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24 flex flex-col md:flex-row md:items-start md:justify-start items-center justify-center h-full">
         <div className="text-center md:text-start max-w-lg">
+          <div className="mb-2 text-lg">
+            Featured Anime
+          </div>
           <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-5xl">
             Koe no Katachi
           </h2>
